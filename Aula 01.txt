@@ -1,0 +1,5 @@
+ - Git / Git Hub
+ 
+ Visual Studio
+ - Fonte: firacode (github)
+ - Package: NuGet
