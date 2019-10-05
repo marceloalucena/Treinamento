@@ -1,8 +1,11 @@
- - Git / Git Hub
- 
- Visual Studio
- - Fonte: firacode (github)
- - Package: NuGet
- 
- MeetUp
- - Jund Developers + Foto
+-- Verificar o que tem modificado
+git status
+
+-- Adicionar as modificações
+git add .
+
+-- Commitar seria empacotar as mudanças com o comentário e deixar preparado para subir no github
+git commit -m "Texto sobre o commit para histórico"
+
+-- Subir para o servidor "github"
+git push
