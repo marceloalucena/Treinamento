@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projeto2
 {
@@ -15,6 +16,16 @@ namespace Projeto2
         }
         public void Inserir(Conta conta)
         {
+            //Cliente cliente = new Cliente();
+            //Banco banco = new Banco();
+            if (conta.ClienteID == 0)
+            {
+                Context.Clientes.Add(conta.Cliente);
+            }
+            if (conta.BancoID == 0)
+            {
+                Context.Bancos.Add(conta.Banco);
+            }
             Context.Contas.Add(conta);
             Context.SaveChanges();
         }
@@ -41,7 +52,7 @@ namespace Projeto2
             }
         }
 
-        public IEnumerable<Conta> Obter()
+        public List<Conta> Obter()
         {
             return Context.Contas.ToList();
         }
@@ -51,18 +62,46 @@ namespace Projeto2
             //return Context.Contas.Find(id);
             return Context.Contas.Where(x => x.Id == id).FirstOrDefault();
         }
-        public void RealizarSaque(Conta conta, decimal valorSaque)
+        public Conta Obter(int bancoId, string conta, string agencia)        
         {
-            Context.Database.ExecuteSqlCommand($"UPDATE Contas SET saldo=saldo-{valorSaque} where id = {conta.Id}");
+            //Pendente => Colocar and agencia = X
+            //return Context.Contas.Where(x => x.ContaCorrente == conta).FirstOrDefault();
+            return Context.Contas.SqlQuery($"select * from Contas where BancoID = {bancoId} and ContaCorrente = '{conta}' and agencia = '{agencia}'").FirstOrDefault();
+        }
+        public String RealizarSaque(Conta conta, decimal valorSaque)
+        {
+            if (valorSaque <= (conta.Limite+conta.Saldo))
+            {
+                string sql = "UPDATE Contas SET saldo=saldo-{0} where id = {1}";
+                Context.Database.ExecuteSqlCommand(sql,valorSaque,conta.Id);
+                return "";
+            }
+            else
+            {
+                return "O Valor do Saque é Superior ao Saldo/Limite";
+            }
         }
         public void RealizarDeposito(Conta conta, decimal valorDeposito)
         {
             Context.Database.ExecuteSqlCommand($"UPDATE Contas SET saldo=saldo+{valorDeposito} where id = {conta.Id}");
         }
-        public void RealizarTransferencia(Conta contaOrigem, Conta contaDestino, decimal valorTransferencia)
+        public string RealizarTransferencia(Conta contaOrigem, Conta contaDestino, decimal valorTransferencia)
         {
-            RealizarSaque(contaOrigem, valorTransferencia);
-            RealizarDeposito(contaDestino, valorTransferencia);
+            string resultado;
+            Decimal taxa = Convert.ToDecimal(3.50D);
+            if (contaOrigem.BancoID != contaDestino.BancoID)
+            {
+                resultado = RealizarSaque(contaOrigem, valorTransferencia + taxa);
+            }
+            else
+            {
+                resultado = RealizarSaque(contaOrigem, valorTransferencia);
+            }
+            if (resultado == "")
+            {
+                RealizarDeposito(contaDestino, valorTransferencia);
+            }
+            return resultado;
         }
     }
 }

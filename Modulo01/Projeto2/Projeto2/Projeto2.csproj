@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banco.cs" />
+    <Compile Include="BancoMap.cs" />
+    <Compile Include="BancoRepository.cs" />
     <Compile Include="ClienteRepository.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteMap.cs" />
@@ -89,6 +93,10 @@
     <Compile Include="Migrations\201910151154036_ClienteAlteracaoTelefone.designer.cs">
       <DependentUpon>201910151154036_ClienteAlteracaoTelefone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910172254060_Banco.cs" />
+    <Compile Include="Migrations\201910172254060_Banco.designer.cs">
+      <DependentUpon>201910172254060_Banco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Projeto2Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910151154036_ClienteAlteracaoTelefone.resx">
       <DependentUpon>201910151154036_ClienteAlteracaoTelefone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910172254060_Banco.resx">
+      <DependentUpon>201910172254060_Banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

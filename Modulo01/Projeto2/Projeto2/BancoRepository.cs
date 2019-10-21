@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Projeto2
 {
-    public class ClienteRepository
+    public class BancoRepository
     {
         public Projeto2Context Context { get; set; }
-        public ClienteRepository()
+        public BancoRepository()
         {
             Context = new Projeto2Context();
         }
-        public void Inserir(Cliente cliente)
+        public void Inserir(Banco banco)
         {
-            Context.Clientes.Add(cliente);
+            Context.Bancos.Add(banco);
             Context.SaveChanges();
         }
-        public void Editar(Cliente cliente)
+        public void Editar(Banco banco)
         {
-            Cliente clienteDB = Obter(cliente.Id);
-            if (clienteDB != null)
+            Banco bancoDB = Obter(banco.Id);
+            if (bancoDB != null)
             {
-                Context.Entry(clienteDB).CurrentValues.SetValues(cliente);
+                Context.Entry(bancoDB).CurrentValues.SetValues(banco);
                 Context.SaveChanges();
             }
         }
@@ -31,20 +31,20 @@ namespace Projeto2
         {
             if (Obter(id) != null)
             {
-                Context.Clientes.Remove(Obter(id));
+                Context.Bancos.Remove(Obter(id));
                 Context.SaveChanges();
             }
         }
 
-        public List<Cliente> Obter()
+        public IEnumerable<Banco> Obter()
         {
-            return Context.Clientes.ToList();
+            return Context.Bancos.ToList();
         }
 
-        public Cliente Obter(int id)
+        public Banco Obter(int id)
         {
             //return Context.Contas.Find(id);
-            return Context.Clientes.Where(x => x.Id == id).FirstOrDefault();
+            return Context.Bancos.Where(x => x.Id == id).FirstOrDefault();
         }
     }
 }

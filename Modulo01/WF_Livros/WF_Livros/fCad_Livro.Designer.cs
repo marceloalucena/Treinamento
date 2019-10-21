@@ -153,6 +153,7 @@
             this.Controls.Add(this.txtID);
             this.Name = "fCad_Livro";
             this.Text = "Cadastro de Livros";
+            this.Load += new System.EventHandler(this.fCad_Livro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numPaginas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

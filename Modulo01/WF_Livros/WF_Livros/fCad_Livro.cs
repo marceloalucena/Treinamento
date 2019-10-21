@@ -38,5 +38,10 @@ namespace WF_Livros
             dtpDataLancamento.Value = livro.DataLancamento;
             numPaginas.Value = Convert.ToDecimal(livro.NumeroPaginas);
         }
+
+        private void fCad_Livro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

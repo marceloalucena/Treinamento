@@ -1,0 +1,51 @@
+Desafios:
+OK Criar nova classe BANCO, com os seguintes campos:
+OK - ID
+OK - Código
+OK - Nome
+
+OK Ajustar classe CONTA
+OK  Remover propriedade banco (string)
+OK  Adicionar propriedade BANCO (classe), similar ao que foi feito com cliente
+
+OK Criar mapeamento para banco de dados (BancoMap)
+OK Criar Repositório BancoRepository (CRUD)
+
+OK Adicionar no contexto o mapeamento do Banco
+OK Adicionar no contexto o relacionamento entre Conta X Banco (FK)
+
+*** Criar uma interface BASE com métodos CRUD
+*** Criar interface para CONTA e CLIENTE (Conta possui métodos específicos)
+*** Ajustar classe CONTA e CLIENTE para implementar a sua interface
+*** Ajustar projeto TESTE para gravar cliente e conta em apenas uma chamada (encadeado)
+
+
+OK Criar projeto Windows Forms (interface com usuário) com as seguintes itens:
+OK Listagem de clientes
+OK - Manutenção cliente (Inserir, Editar e Apagar)
+
+OK Listagem de bancos
+OK - Manutenção bancos (Inserir, Editar e Apagar)
+
+OK Listagem de Contas
+OK - Manutenção de conta (Inserir, Editar e Apagar)
+
+OK "Caixa Eletrônico" - com possibilidade de realizar as operações da conta:
+OK Saque
+OK - Deve ser realizado a validação se a conta existe no banco de dados
+OK - Respeitar a regra do limite, cliente não pode realizar saque se o valor for maior que o saldo (informar o cliente)
+
+OK Deposito
+OK - Deve ser realizado a validação se a conta existe no banco de dados
+
+OK Transferência
+OK - Deve ser realizada a validação se a conta origem/destino existem no banco de dados
+OK - Respeitar a regra, se o valor a ser transferido for maior que o saldo a operação não de ser realizada (informar o cliente)
+OK - Para transferência entre bancos diferentes deve ser cobrada uma taxa de R$ 3,50 (por operação)
+OK - Deve ser realizada a validação se existe saldo para a operação(valor transferência + taxa) - informar o cliente caso a operação não seja possível
+
+OK Abaixo fiz uma linha base de como imagino o "Caixa Eletrônico", lembrando que é apenas uma sugestão (linha base)
+
+Qualquer dúvida, pode chamar
+Obrigado
+

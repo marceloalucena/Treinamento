@@ -14,7 +14,6 @@ namespace Projeto2
             ToTable("Contas");
 
             HasKey(p => p.Id);
-            Property(x => x.Banco).IsRequired().HasMaxLength(50);
             Property(x => x.Agencia).IsRequired().HasMaxLength(4);
             Property(x => x.ContaCorrente).IsRequired().HasMaxLength(10); 
             Property(x => x.Saldo).IsRequired();
