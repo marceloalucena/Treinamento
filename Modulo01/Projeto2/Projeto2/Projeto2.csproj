@@ -61,6 +61,10 @@
     <Compile Include="ContaMap.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="ContaRepository.cs" />
+    <Compile Include="iBaseRepository.cs" />
+    <Compile Include="iContaRepository.cs" />
+    <Compile Include="iBancoRepository.cs" />
+    <Compile Include="iClienteRepository.cs" />
     <Compile Include="Migrations\201910142248414_InitialCreate.cs" />
     <Compile Include="Migrations\201910142248414_InitialCreate.designer.cs">
       <DependentUpon>201910142248414_InitialCreate.cs</DependentUpon>
@@ -129,6 +133,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910151154036_ClienteAlteracaoTelefone.resx">
       <DependentUpon>201910151154036_ClienteAlteracaoTelefone.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910172254060_Banco.resx">
       <DependentUpon>201910172254060_Banco.cs</DependentUpon>

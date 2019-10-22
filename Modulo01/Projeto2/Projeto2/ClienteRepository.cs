@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto2
 {
-    public class ClienteRepository
+    public class ClienteRepository : iBaseRepository<Cliente>
     {
         public Projeto2Context Context { get; set; }
         public ClienteRepository()

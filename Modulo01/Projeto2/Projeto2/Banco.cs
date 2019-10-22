@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto2
 {
-    public class Banco
+    public class Banco 
     {
         /*public Banco(int codigo, string nome)
         {

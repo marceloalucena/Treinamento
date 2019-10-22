@@ -85,7 +85,8 @@ namespace Projeto02InterfaceUsuario
                conta.Id = Convert.ToInt32(txtID.Text);
             }
             conta.ClienteID = Convert.ToInt32(cbxCliente.SelectedValue);
-            conta.BancoID = Convert.ToInt32(cbxBanco.SelectedValue);
+           // conta.BancoID = Convert.ToInt32(cbxBanco.SelectedValue);
+            conta.Banco = (Banco)cbxBanco.SelectedItem;
             conta.Agencia = txtAgencia.Text;
             conta.ContaCorrente = txtContaCorrente.Text;
             conta.Saldo = numSaldo.Value;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto2
 {
-    public class BancoRepository
+    public class BancoRepository : iBancoRepository
     {
         public Projeto2Context Context { get; set; }
         public BancoRepository()
@@ -36,7 +36,7 @@ namespace Projeto2
             }
         }
 
-        public IEnumerable<Banco> Obter()
+        public List<Banco> Obter()
         {
             return Context.Bancos.ToList();
         }

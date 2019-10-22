@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Projeto2
 {
-    public class ContaRepository
+    public class ContaRepository : iContaRepository
     {
         public Projeto2Context Context { get; set; }
         public ContaRepository()
@@ -18,14 +18,14 @@ namespace Projeto2
         {
             //Cliente cliente = new Cliente();
             //Banco banco = new Banco();
-            if (conta.ClienteID == 0)
-            {
-                Context.Clientes.Add(conta.Cliente);
-            }
-            if (conta.BancoID == 0)
-            {
-                Context.Bancos.Add(conta.Banco);
-            }
+            //if (conta.ClienteID == 0)
+            //{
+            //    Context.Clientes.Add(conta.Cliente);
+            //}
+            //if (conta.BancoID == 0)
+            //{
+            //    Context.Bancos.Add(conta.Banco);
+            //}
             Context.Contas.Add(conta);
             Context.SaveChanges();
         }

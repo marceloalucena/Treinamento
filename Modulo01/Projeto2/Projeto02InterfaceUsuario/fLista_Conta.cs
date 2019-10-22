@@ -37,6 +37,7 @@ namespace Projeto02InterfaceUsuario
         {
             fCad_Conta frm = new fCad_Conta();
             frm.ShowDialog();
+            
             contaRepository.Inserir(frm.ContaManutencao);
             AtualizarGrid();
         }
