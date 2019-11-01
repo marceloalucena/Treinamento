@@ -1,0 +1,50 @@
+PROJETO: Abaixo temos um descritivo,
+         de um dono de mercado que deseja migrar o controle de planilha para sistema:
+
+Atualmente tenho um mercadinho de bairro, onde realizo o controlo dos meus produtos, estoque, fornecedores e clientes
+através de planilhas:
+
+Produtos: Tenho uma planilha onde tenho o código, descrição do produto, se está ativo,  bem como o valor de compra
+          além do valor de venda deste produto.
+ Este valor de venda é calculado com base no valor de compra aplicado um percentual de lucro.
+
+Exemplo: código | descrição   | valor de compra | lucro % | valor de venda | Ativo
+000001 | Sabão em pó           | R$ 8.66               | 75%      | R$ 15,15          | SIM
+000002 | martelo                    | R$ 4,99               | 99%      | R$ 9,93             | SIM
+
+Fornecedores: É através desta planilha que controlo o cadastro dos meus fornecedores, além de fazer o recebimento dos produtos
+ Para controlar tenho as seguintes informações do fornecedor:
+ código, nome, ativo, data recebimento do produto, quantidade recebida do produto.
+ há casos em que inativo um fornecedor, e nesta situação não posso receber o produto, além disso também não posso
+ receber um produto que está inativo.
+ Além do recebimento, também é possível realizar a solicitação de compra de mais produtos, uma vez que o estoque
+ está abaixo do mínimo.
+
+Estoque: Na minha planilha de estoque é onde controlo o produto e seu estoque atual e mínimo.
+         Quando um produto está abaixo do estoque mínimo quando abro a planilha tenho sou notificado, desta forma
+consigo fazer a solicitação de compra do produto em questão.
+
+Exemplo: código | descrição         | Qtde Estoque| Qtde Mínimo Estoque
+               000001 | Sabão em pó  | 10                    | 15                  
+               000002 | martelo            | 5                     | 4    
+
+Clientes: Neste planilha, controlo meus clientes, através do nome, data de nascimento, data ultima compra, com base no nascimento
+          consigo saber se o cliente está fazendo aniversario, e com isso gerar desconto de 10% no momento da compra de um produto.
+ 
+Venda de produto: Nela salvo todas as vendas, armazeno o cliente que está comprando e os produtos (caso esteja ativo e tenha em estoque).
+     Atualmente recebo apenas em dinheiro e vou manter desta forma, o importante é já calcular o total dos produtos (utilizar valor de venda)
+ e o troco do cliente, importante lembrar que caso o cliente esteja fazendo aniversario é aplicado 10% de desconto
+ no valor final da compra. Uma vez efetivada a compra é necessário realizar a baixa no estoque.
+
+Com base da descrição acima, faça a modelagem classes e processos que possam substituir as atuais planilhas.
+
+Dicas: Criar projeto dll, conectar com EF (entityFramework) para salvar as informações no banco de dados.
+           Criar projeto de interface WF (WindowsForms).
+
+Sugestão de nomes:
+Solução: Mercadinho:
+                Mercadinho.dll (dll e EF)
+               Mercadinho.WF (WindowsForms)
+
+caso tenha alguma dúvida só avisar, posso ter esquecido de algo :)
+Obrigado

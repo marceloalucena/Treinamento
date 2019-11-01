@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeto2
+namespace MercadinhoClass
 {
     public class ClienteRepository : iClienteRepository
     {
-        public Projeto2Context Context { get; set; }
+        public MercadinhoContext Context { get; set; }
         public ClienteRepository()
         {
-            Context = new Projeto2Context();
+            Context = new MercadinhoContext();
         }
         public void Inserir(Cliente cliente)
         {
@@ -36,7 +36,7 @@ namespace Projeto2
             }
         }
 
-        public List<Cliente> Obter()
+        public IEnumerable<Cliente> Obter()
         {
             return Context.Clientes.ToList();
         }

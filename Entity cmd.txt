@@ -1,0 +1,8 @@
+-- Habilita as alterações de banco
+enable-migrations
+
+-- Cria os scripts de criação/alterações dos dados 
+add-migration DescriçãoDaAlteração
+
+-- Executa as mudanças no banco de dados
+update-database
