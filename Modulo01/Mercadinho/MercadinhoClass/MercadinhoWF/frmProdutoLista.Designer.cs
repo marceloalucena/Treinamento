@@ -1,6 +1,6 @@
-﻿namespace Projeto02InterfaceUsuario
+﻿namespace MercadinhoWF
 {
-    partial class fLista_Banco
+    partial class frmProdutoLista
     {
         /// <summary>
         /// Required designer variable.
@@ -28,65 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvLista_Banco = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNovo = new System.Windows.Forms.Button();
+            this.dgvLista_Produto = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnApagar = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Banco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Produto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvLista_Banco
-            // 
-            this.dgvLista_Banco.AllowUserToOrderColumns = true;
-            this.dgvLista_Banco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista_Banco.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Codigo,
-            this.Nome,
-            this.btnEditar,
-            this.btnApagar});
-            this.dgvLista_Banco.Location = new System.Drawing.Point(23, 86);
-            this.dgvLista_Banco.Name = "dgvLista_Banco";
-            this.dgvLista_Banco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista_Banco.Size = new System.Drawing.Size(744, 204);
-            this.dgvLista_Banco.TabIndex = 1;
-            this.dgvLista_Banco.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Banco_CellContentClick);
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(503, 332);
+            this.btnNovo.Location = new System.Drawing.Point(508, 322);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(124, 53);
-            this.btnNovo.TabIndex = 2;
+            this.btnNovo.TabIndex = 4;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
+            // dgvLista_Produto
+            // 
+            this.dgvLista_Produto.AllowUserToOrderColumns = true;
+            this.dgvLista_Produto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista_Produto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Descricao,
+            this.Nome,
+            this.btnEditar,
+            this.btnApagar});
+            this.dgvLista_Produto.Location = new System.Drawing.Point(28, 76);
+            this.dgvLista_Produto.Name = "dgvLista_Produto";
+            this.dgvLista_Produto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista_Produto.Size = new System.Drawing.Size(744, 204);
+            this.dgvLista_Produto.TabIndex = 3;
+            this.dgvLista_Produto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Produto_CellClick);
+            this.dgvLista_Produto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Produto_CellContentClick);
+            // 
             // id
             // 
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Width = 40;
             // 
-            // Codigo
+            // Descricao
             // 
-            this.Codigo.DataPropertyName = "Codigo";
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 130;
+            this.Descricao.DataPropertyName = "Descricao";
+            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.Width = 130;
             // 
             // Nome
             // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "Nome";
+            this.Nome.DataPropertyName = "ValorCusto";
+            this.Nome.HeaderText = "ValorCusto";
             this.Nome.Name = "Nome";
             this.Nome.Width = 130;
             // 
@@ -104,27 +105,26 @@
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseColumnTextForButtonValue = true;
             // 
-            // fLista_Banco
+            // frmProdutoLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.dgvLista_Banco);
-            this.Name = "fLista_Banco";
-            this.Text = "Lista de Bancos";
-            this.Load += new System.EventHandler(this.fLista_Banco_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Banco)).EndInit();
+            this.Controls.Add(this.dgvLista_Produto);
+            this.Name = "frmProdutoLista";
+            this.Text = "Lista de Produtos";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Produto)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvLista_Banco;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.DataGridView dgvLista_Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
         private System.Windows.Forms.DataGridViewButtonColumn btnApagar;

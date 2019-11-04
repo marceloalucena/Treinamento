@@ -13,8 +13,8 @@ namespace MercadinhoClass
         public decimal ValorCusto { get; set; }
         public decimal FatorPreco { get; set; }
         public bool Ativo { get; set; }
-        public int QtdeEstoque { get; set; }
-        public int QtdeEstoqueMinimo { get; set; }
+        private int Estoque { get; set; }
+        public int EstoqueMinimo { get; set; }
         public virtual ICollection<Venda> Vendas { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }
     }
