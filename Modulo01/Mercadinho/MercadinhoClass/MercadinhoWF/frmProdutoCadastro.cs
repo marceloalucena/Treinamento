@@ -34,7 +34,7 @@ namespace MercadinhoWF
             produto.Descricao = txtDescricao.Text;
             produto.ValorCusto = numValorCusto.Value;
             produto.FatorPreco = numFatorPreco.Value;
-            produto.EstoqueMinimo = Convert.ToInt32(numEstoqueMinimo.Value);
+            //produto.EstoqueMinimo = Convert.ToInt32(numEstoqueMinimo.Value);
             ProdutoManutencao = produto;
 
             Close();
@@ -45,7 +45,7 @@ namespace MercadinhoWF
             txtDescricao.Text = produto.Descricao;
             numValorCusto.Value = produto.ValorCusto;
             numFatorPreco.Value = produto.FatorPreco;
-            numEstoqueMinimo.Value = produto.EstoqueMinimo;
+            //numEstoqueMinimo.Value = produto.EstoqueMinimo;
         }
 
     }

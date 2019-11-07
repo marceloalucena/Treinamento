@@ -34,7 +34,7 @@ namespace MercadinhoWF
             Initialize();
         }
 
-        private void dgvLista_Produto_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvLista_Cliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Cliente cliente = (Cliente)(dgvLista_Cliente.SelectedRows[0].DataBoundItem);
             if (dgvLista_Cliente.Columns[e.ColumnIndex].Name == "btnEditar")
@@ -72,9 +72,11 @@ namespace MercadinhoWF
         {
             frmClienteCadastro frm = new frmClienteCadastro();
             frm.ShowDialog();
-
-            clienteRepository.Inserir(frm.ClienteManutencao);
-            AtualizarGrid();
+            if (frm.ClienteManutencao != null) 
+            {
+               clienteRepository.Inserir(frm.ClienteManutencao);
+               AtualizarGrid();
+            }
         }
     }
 }

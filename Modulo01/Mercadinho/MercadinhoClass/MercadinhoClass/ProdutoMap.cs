@@ -15,6 +15,8 @@ namespace MercadinhoClass
 
             HasKey(p => p.Id);
             Property(x => x.Descricao).IsRequired().HasMaxLength(50);
+
+            HasOptional(x => x.Estoque).WithRequired(x => x.Produto);
         }
     }
 }

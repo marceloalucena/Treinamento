@@ -31,8 +31,15 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.cbxCliente = new System.Windows.Forms.ComboBox();
+            this.cbxProduto = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numQtde = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpDataVenda = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.numQtde)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
@@ -43,15 +50,16 @@
             this.btnSalvar.TabIndex = 48;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(209, 161);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 47;
-            this.label2.Text = "Nome";
+            this.label2.Text = "Cliente";
             // 
             // label1
             // 
@@ -62,13 +70,6 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "ID";
             // 
-            // txtNome
-            // 
-            this.txtNome.Location = new System.Drawing.Point(317, 158);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(274, 20);
-            this.txtNome.TabIndex = 45;
-            // 
             // txtID
             // 
             this.txtID.Enabled = false;
@@ -77,18 +78,89 @@
             this.txtID.Size = new System.Drawing.Size(84, 20);
             this.txtID.TabIndex = 44;
             // 
+            // cbxCliente
+            // 
+            this.cbxCliente.FormattingEnabled = true;
+            this.cbxCliente.Location = new System.Drawing.Point(317, 158);
+            this.cbxCliente.Name = "cbxCliente";
+            this.cbxCliente.Size = new System.Drawing.Size(259, 21);
+            this.cbxCliente.TabIndex = 49;
+            // 
+            // cbxProduto
+            // 
+            this.cbxProduto.FormattingEnabled = true;
+            this.cbxProduto.Location = new System.Drawing.Point(317, 185);
+            this.cbxProduto.Name = "cbxProduto";
+            this.cbxProduto.Size = new System.Drawing.Size(259, 21);
+            this.cbxProduto.TabIndex = 51;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(209, 188);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Produto";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(209, 218);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Quantidade";
+            // 
+            // numQtde
+            // 
+            this.numQtde.Location = new System.Drawing.Point(317, 216);
+            this.numQtde.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numQtde.Name = "numQtde";
+            this.numQtde.Size = new System.Drawing.Size(120, 20);
+            this.numQtde.TabIndex = 53;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(209, 248);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 13);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Data da Compra";
+            // 
+            // dtpDataVenda
+            // 
+            this.dtpDataVenda.Enabled = false;
+            this.dtpDataVenda.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDataVenda.Location = new System.Drawing.Point(317, 242);
+            this.dtpDataVenda.Name = "dtpDataVenda";
+            this.dtpDataVenda.Size = new System.Drawing.Size(104, 20);
+            this.dtpDataVenda.TabIndex = 65;
+            // 
             // frmVendaCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dtpDataVenda);
+            this.Controls.Add(this.numQtde);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbxProduto);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbxCliente);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtID);
             this.Name = "frmVendaCadastro";
             this.Text = "Cadastro de Venda";
+            ((System.ComponentModel.ISupportInitialize)(this.numQtde)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,7 +171,13 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.ComboBox cbxCliente;
+        private System.Windows.Forms.ComboBox cbxProduto;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numQtde;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpDataVenda;
     }
 }

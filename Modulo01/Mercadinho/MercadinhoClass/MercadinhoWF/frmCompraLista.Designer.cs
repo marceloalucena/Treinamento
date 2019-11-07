@@ -1,6 +1,6 @@
 ﻿namespace MercadinhoWF
 {
-    partial class frmClienteLista
+    partial class frmCompraLista
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.dgvLista_Cliente = new System.Windows.Forms.DataGridView();
+            this.dgvLista_Vendas = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnApagar = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Vendas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNovo
@@ -44,33 +44,32 @@
             this.btnNovo.Location = new System.Drawing.Point(508, 322);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(124, 53);
-            this.btnNovo.TabIndex = 6;
+            this.btnNovo.TabIndex = 10;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // dgvLista_Cliente
+            // dgvLista_Vendas
             // 
-            this.dgvLista_Cliente.AllowUserToOrderColumns = true;
-            this.dgvLista_Cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista_Cliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLista_Vendas.AllowUserToOrderColumns = true;
+            this.dgvLista_Vendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista_Vendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.Descricao,
             this.Nome,
             this.btnEditar,
             this.btnApagar});
-            this.dgvLista_Cliente.Location = new System.Drawing.Point(28, 76);
-            this.dgvLista_Cliente.Name = "dgvLista_Cliente";
-            this.dgvLista_Cliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista_Cliente.Size = new System.Drawing.Size(744, 204);
-            this.dgvLista_Cliente.TabIndex = 5;
-            this.dgvLista_Cliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Cliente_CellClick);
+            this.dgvLista_Vendas.Location = new System.Drawing.Point(28, 76);
+            this.dgvLista_Vendas.Name = "dgvLista_Vendas";
+            this.dgvLista_Vendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista_Vendas.Size = new System.Drawing.Size(744, 204);
+            this.dgvLista_Vendas.TabIndex = 9;
+            this.dgvLista_Vendas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Vendas_CellContentClick);
             // 
             // id
             // 
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -78,15 +77,15 @@
             // 
             // Descricao
             // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.DataPropertyName = "QtdeVenda";
+            this.Descricao.HeaderText = "Qtde Venda";
             this.Descricao.Name = "Descricao";
             this.Descricao.Width = 130;
             // 
             // Nome
             // 
-            this.Nome.DataPropertyName = "ValorCusto";
-            this.Nome.HeaderText = "ValorCusto";
+            this.Nome.DataPropertyName = "DataCompra";
+            this.Nome.HeaderText = "Data Compra";
             this.Nome.Name = "Nome";
             this.Nome.Width = 130;
             // 
@@ -104,16 +103,16 @@
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseColumnTextForButtonValue = true;
             // 
-            // frmClienteLista
+            // frmCompraLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.dgvLista_Cliente);
-            this.Name = "frmClienteLista";
-            this.Text = "Lista de Clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Cliente)).EndInit();
+            this.Controls.Add(this.dgvLista_Vendas);
+            this.Name = "frmCompraLista";
+            this.Text = "Listagem de Compras";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Vendas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,7 +120,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.DataGridView dgvLista_Cliente;
+        private System.Windows.Forms.DataGridView dgvLista_Vendas;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;

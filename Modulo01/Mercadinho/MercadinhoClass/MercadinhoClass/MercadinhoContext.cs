@@ -24,10 +24,12 @@ namespace MercadinhoClass
         {
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Configurations.Add(new ProdutoMap());
+            modelBuilder.Configurations.Add(new EstoqueMap());
             modelBuilder.Configurations.Add(new ClienteMap());
             modelBuilder.Configurations.Add(new FornecedorMap());
             modelBuilder.Configurations.Add(new VendaMap());
             modelBuilder.Configurations.Add(new CompraMap());
+
             modelBuilder.Entity<Venda>()
                 .HasRequired<Produto>(c => c.Produto)
                 .WithMany(a => a.Vendas)

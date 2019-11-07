@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCompraCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompraCadastro.Designer.cs">
+      <DependentUpon>frmCompraCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompraLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompraLista.Designer.cs">
+      <DependentUpon>frmCompraLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVendaCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmClienteLista.resx">
       <DependentUpon>frmClienteLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompraCadastro.resx">
+      <DependentUpon>frmCompraCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompraLista.resx">
+      <DependentUpon>frmCompraLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFornecedorCadastro.resx">
       <DependentUpon>frmFornecedorCadastro.cs</DependentUpon>

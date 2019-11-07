@@ -44,5 +44,11 @@ namespace MercadinhoWF
         {
 
         }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVendaLista frm = new frmVendaLista();
+            frm.Show();
+        }
     }
 }

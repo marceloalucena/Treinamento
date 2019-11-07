@@ -11,12 +11,12 @@ using MercadinhoClass;
 
 namespace MercadinhoWF
 {
-    public partial class frmVendaCadastro : Form
+    public partial class frmCompraCadastro : Form
     {
         public ClienteRepository clienteRepository = new ClienteRepository();
 
         public ProdutoRepository produtoRepository = new ProdutoRepository();
-        public Venda VendaManutencao { get; set; }
+        public Compra CompraManutencao { get; set; }
         public List<Cliente> Clientes { get; set; }
         public List<Produto> Produtos { get; set; }
 
@@ -34,40 +34,31 @@ namespace MercadinhoWF
             cbxProduto.DisplayMember = "Descricao";
             cbxProduto.ValueMember = "Id";
         }
-        public frmVendaCadastro()
+
+        public frmCompraCadastro()
         {
             InitializeComponent();
-            Initialize();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Venda venda = new Venda();
+            Compra compra = new Compra();
             if (txtID.Text != "")
             {
-                venda.Id = Convert.ToInt32(txtID.Text);
-                venda.DataVenda = dtpDataVenda.Value;
+                compra.Id = Convert.ToInt32(txtID.Text);
+                compra.DataCompra = dtpDataCompra.Value;
             }
             else
             {
-                venda.DataVenda = DateTime.Now;
+                compra.DataCompra = DateTime.Now;
             }
-            venda.ProdutoId = Convert.ToInt32(cbxProduto.SelectedValue);
-            venda.ClienteId = Convert.ToInt32(cbxCliente.SelectedValue);
-            venda.QtdeVenda = Convert.ToInt32(numQtde.Value);
+            compra.ProdutoId = Convert.ToInt32(cbxProduto.SelectedValue);
+            compra.FornecedorId = Convert.ToInt32(cbxCliente.SelectedValue);
+            compra.QtdeCompra = Convert.ToInt32(numQtde.Value);
             
-            VendaManutencao = venda;
+            CompraManutencao = compra;
 
             Close();
-        }
-        public void Preencher(Venda venda)
-        {
-            txtID.Text = Convert.ToString(venda.Id);
-            cbxProduto.SelectedValue = venda.ProdutoId;
-            cbxCliente.SelectedValue = venda.ClienteId;
-            numQtde.Value = venda.QtdeVenda;
-            dtpDataVenda.Value = venda.DataVenda;
-
         }
     }
 }

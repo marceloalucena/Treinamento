@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvLista_Vendas = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +47,7 @@
             this.btnNovo.TabIndex = 8;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // dgvLista_Vendas
             // 
@@ -63,12 +64,13 @@
             this.dgvLista_Vendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista_Vendas.Size = new System.Drawing.Size(744, 204);
             this.dgvLista_Vendas.TabIndex = 7;
+            this.dgvLista_Vendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Vendas_CellClick);
             // 
             // id
             // 
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -76,15 +78,15 @@
             // 
             // Descricao
             // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descrição";
+            this.Descricao.DataPropertyName = "QtdeVenda";
+            this.Descricao.HeaderText = "Qtde";
             this.Descricao.Name = "Descricao";
             this.Descricao.Width = 130;
             // 
             // Nome
             // 
-            this.Nome.DataPropertyName = "ValorCusto";
-            this.Nome.HeaderText = "ValorCusto";
+            this.Nome.DataPropertyName = "DataVenda";
+            this.Nome.HeaderText = "Data";
             this.Nome.Name = "Nome";
             this.Nome.Width = 130;
             // 

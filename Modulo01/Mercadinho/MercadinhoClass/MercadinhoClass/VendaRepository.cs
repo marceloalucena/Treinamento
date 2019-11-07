@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    class VendaRepository : iVendaRepository
+    public class VendaRepository : iVendaRepository
     {
         public MercadinhoContext Context { get; set; }
         public VendaRepository()

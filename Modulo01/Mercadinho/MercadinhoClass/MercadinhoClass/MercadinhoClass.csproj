@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EstoqueRepository.cs" />
+    <Compile Include="EstoqueMap.cs" />
+    <Compile Include="Estoque.cs" />
     <Compile Include="CompraRepository.cs" />
     <Compile Include="CompraMap.cs" />
     <Compile Include="Compra.cs" />
@@ -62,6 +65,10 @@
     <Compile Include="Migrations\201911021226429_Alteração Nome Campo Produto.cs" />
     <Compile Include="Migrations\201911021226429_Alteração Nome Campo Produto.designer.cs">
       <DependentUpon>201911021226429_Alteração Nome Campo Produto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911050052061_Criado_Tab_Estoque.cs" />
+    <Compile Include="Migrations\201911050052061_Criado_Tab_Estoque.designer.cs">
+      <DependentUpon>201911050052061_Criado_Tab_Estoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="VendaRepository.cs" />
@@ -94,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911021226429_Alteração Nome Campo Produto.resx">
       <DependentUpon>201911021226429_Alteração Nome Campo Produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911050052061_Criado_Tab_Estoque.resx">
+      <DependentUpon>201911050052061_Criado_Tab_Estoque.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

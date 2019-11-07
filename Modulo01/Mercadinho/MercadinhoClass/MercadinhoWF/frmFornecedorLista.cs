@@ -38,9 +38,12 @@ namespace MercadinhoWF
         {
             frmFornecedorCadastro frm = new frmFornecedorCadastro();
             frm.ShowDialog();
+            if (frm.FornecedorManutencao != null)
+            {
+                fornecedorRepository.Inserir(frm.FornecedorManutencao);
+                AtualizarGrid();
+            }
 
-            fornecedorRepository.Inserir(frm.FornecedorManutencao);
-            AtualizarGrid();
         }
 
         private void dgvLista_Cliente_CellClick(object sender, DataGridViewCellEventArgs e)

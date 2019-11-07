@@ -70,9 +70,11 @@ namespace MercadinhoWF
         {
             frmProdutoCadastro frm = new frmProdutoCadastro();
             frm.ShowDialog();
-
-            produtoRepository.Inserir(frm.ProdutoManutencao);
-            AtualizarGrid();
+            if (frm.ProdutoManutencao != null)
+            {
+                produtoRepository.Inserir(frm.ProdutoManutencao);
+                AtualizarGrid();
+            }
         }
 
         private void dgvLista_Produto_CellContentClick(object sender, DataGridViewCellEventArgs e)
