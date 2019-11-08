@@ -12,6 +12,14 @@ Exemplo: código | descrição   | valor de compra | lucro % | valor de venda | 
 000001 | Sabão em pó           | R$ 8.66               | 75%      | R$ 15,15          | SIM
 000002 | martelo                    | R$ 4,99               | 99%      | R$ 9,93             | SIM
 
+produto:
+codigo
+descricao
+valordecusto
+fatordepreco
+valordevenda
+ativo
+
 Fornecedores: É através desta planilha que controlo o cadastro dos meus fornecedores, além de fazer o recebimento dos produtos
  Para controlar tenho as seguintes informações do fornecedor:
  código, nome, ativo, data recebimento do produto, quantidade recebida do produto.

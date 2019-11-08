@@ -12,7 +12,7 @@ namespace MercadinhoClass
 
         void Editar(T entidade);
 
-        void Apagar(int Id);
+        void Apagar(T entidade);
 
         T Obter(int Id);
 

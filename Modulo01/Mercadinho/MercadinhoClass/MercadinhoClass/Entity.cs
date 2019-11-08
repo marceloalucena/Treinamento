@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    public class ProdutoRepository : BaseRepository<Produto>
+    public class Entity
     {
+        public int Id { get; set; }
     }
 }

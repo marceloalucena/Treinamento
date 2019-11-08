@@ -69,7 +69,7 @@ namespace MercadinhoWF
                 DialogResult result = MessageBox.Show("Deseja apagar o item?", "Remover", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    vendaRepository.Apagar(venda.Id);
+                    vendaRepository.Apagar(venda);
                     AtualizarGrid();
                     MessageBox.Show("Item Removido com Sucesso!");
                 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    public class Cliente
+    public class Cliente : Entity
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
         public bool Ativo { get; set; }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    public class Estoque
+    public class Estoque: Entity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public Produto Produto { get; set; }
         public int QtdeEstoque { get; set; }
         public int QtdeEstoqueMinimo { get; set; }

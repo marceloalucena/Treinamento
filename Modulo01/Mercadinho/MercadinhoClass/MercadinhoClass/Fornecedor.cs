@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    public class Fornecedor
+    public class Fornecedor: Entity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Nome { get; set; }
         public bool Ativo { get; set; }
         public virtual ICollection<Compra> Compras { get; set; }

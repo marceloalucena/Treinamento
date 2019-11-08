@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    public class Compra
+    public class Compra : Entity
     {
-        public int Id { get; set; }
         public int ProdutoId { get; set; }
         public Produto Produto { get; set; }
         public int FornecedorId { get; set; }

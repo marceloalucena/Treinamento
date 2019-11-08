@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MercadinhoClass
 {
-    public class Produto
+    public class Produto : Entity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Descricao { get; set; }
         public decimal ValorCusto { get; set; }
         public decimal FatorPreco { get; set; }
