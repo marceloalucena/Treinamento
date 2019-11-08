@@ -26,7 +26,9 @@ namespace MercadinhoClass
 
         public void Editar(Entidade entidade)
         {
-            _contexto.Entry<Entidade>(entidade).State = EntityState.Modified;
+            Entidade entidadeDB;
+            entidadeDB = Obter(entidade.Id);
+            _contexto.Entry<Entidade>(entidadeDB).CurrentValues.SetValues(entidade);
             _contexto.SaveChanges();
         }
 
