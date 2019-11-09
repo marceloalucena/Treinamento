@@ -34,7 +34,7 @@ namespace MercadinhoWF
             produto.Descricao = txtDescricao.Text;
             produto.ValorCusto = numValorCusto.Value;
             produto.FatorPreco = numFatorPreco.Value;
-            //produto.EstoqueMinimo = Convert.ToInt32(numEstoqueMinimo.Value);
+            produto.Ativo = cbxAtivo.Checked;
             ProdutoManutencao = produto;
 
             Close();
@@ -45,7 +45,12 @@ namespace MercadinhoWF
             txtDescricao.Text = produto.Descricao;
             numValorCusto.Value = produto.ValorCusto;
             numFatorPreco.Value = produto.FatorPreco;
-            //numEstoqueMinimo.Value = produto.EstoqueMinimo;
+            cbxAtivo.Checked = produto.Ativo;
+            if (produto.Estoque != null)
+            {
+              numEstoqueMinimo.Value = produto.Estoque.QtdeEstoqueMinimo;
+              numEstoqueAtual.Value  = produto.Estoque.QtdeEstoqueAtual;
+            }
         }
 
     }

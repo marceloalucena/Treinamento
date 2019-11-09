@@ -32,7 +32,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbxProduto = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbxCliente = new System.Windows.Forms.ComboBox();
+            this.cbxFornecedor = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,13 +80,13 @@
             this.label3.TabIndex = 59;
             this.label3.Text = "Produto";
             // 
-            // cbxCliente
+            // cbxFornecedor
             // 
-            this.cbxCliente.FormattingEnabled = true;
-            this.cbxCliente.Location = new System.Drawing.Point(325, 158);
-            this.cbxCliente.Name = "cbxCliente";
-            this.cbxCliente.Size = new System.Drawing.Size(259, 21);
-            this.cbxCliente.TabIndex = 58;
+            this.cbxFornecedor.FormattingEnabled = true;
+            this.cbxFornecedor.Location = new System.Drawing.Point(325, 158);
+            this.cbxFornecedor.Name = "cbxFornecedor";
+            this.cbxFornecedor.Size = new System.Drawing.Size(259, 21);
+            this.cbxFornecedor.TabIndex = 58;
             // 
             // btnSalvar
             // 
@@ -103,9 +103,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(217, 161);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 56;
-            this.label2.Text = "Cliente";
+            this.label2.Text = "Fornecedor";
             // 
             // label1
             // 
@@ -153,7 +153,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbxProduto);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cbxCliente);
+            this.Controls.Add(this.cbxFornecedor);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -172,7 +172,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxProduto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbxCliente;
+        private System.Windows.Forms.ComboBox cbxFornecedor;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

@@ -19,7 +19,6 @@ namespace MercadinhoClass
         public void Apagar(Entidade entidade)
         {
             _contexto.Set<Entidade>().Remove(entidade);
-
             _contexto.SaveChanges();
 
         }
@@ -35,19 +34,18 @@ namespace MercadinhoClass
         public void Inserir(Entidade entidade)
         {
             _contexto.Set<Entidade>().Add(entidade);
-
             _contexto.SaveChanges();
 
         }
 
-        public Entidade Obter(int id)
+        public virtual Entidade Obter(int id)
         {
             return _contexto.Set<Entidade>()
                 .Where(p => p.Id == id)
                 .FirstOrDefault();
         }
 
-        public IEnumerable<Entidade> Obter()
+        public virtual IEnumerable<Entidade> Obter()
         {
             return _contexto.Set<Entidade>().ToList();
         }

@@ -67,7 +67,6 @@ namespace MercadinhoWF
             cbxCliente.SelectedValue = venda.ClienteId;
             numQtde.Value = venda.QtdeVenda;
             dtpDataVenda.Value = venda.DataVenda;
-
         }
     }
 }

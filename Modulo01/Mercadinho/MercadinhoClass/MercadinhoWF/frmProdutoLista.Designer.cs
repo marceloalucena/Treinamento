@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvLista_Produto = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FatorPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecoVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstoqueAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstoqueMinimo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnApagar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Produto)).BeginInit();
@@ -41,9 +50,10 @@
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(508, 322);
+            this.btnNovo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnNovo.Location = new System.Drawing.Point(0, 430);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(124, 53);
+            this.btnNovo.Size = new System.Drawing.Size(969, 53);
             this.btnNovo.TabIndex = 4;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
@@ -57,12 +67,17 @@
             this.id,
             this.Descricao,
             this.Nome,
+            this.FatorPreco,
+            this.PrecoVenda,
+            this.EstoqueAtual,
+            this.EstoqueMinimo,
             this.btnEditar,
             this.btnApagar});
-            this.dgvLista_Produto.Location = new System.Drawing.Point(28, 76);
+            this.dgvLista_Produto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLista_Produto.Location = new System.Drawing.Point(0, 0);
             this.dgvLista_Produto.Name = "dgvLista_Produto";
             this.dgvLista_Produto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista_Produto.Size = new System.Drawing.Size(744, 204);
+            this.dgvLista_Produto.Size = new System.Drawing.Size(969, 483);
             this.dgvLista_Produto.TabIndex = 3;
             this.dgvLista_Produto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Produto_CellClick);
             this.dgvLista_Produto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_Produto_CellContentClick);
@@ -70,12 +85,12 @@
             // id
             // 
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle7;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 40;
+            this.id.Width = 25;
             // 
             // Descricao
             // 
@@ -87,9 +102,47 @@
             // Nome
             // 
             this.Nome.DataPropertyName = "ValorCusto";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Nome.DefaultCellStyle = dataGridViewCellStyle8;
             this.Nome.HeaderText = "ValorCusto";
             this.Nome.Name = "Nome";
-            this.Nome.Width = 130;
+            this.Nome.Width = 70;
+            // 
+            // FatorPreco
+            // 
+            this.FatorPreco.DataPropertyName = "FatorPreco";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FatorPreco.DefaultCellStyle = dataGridViewCellStyle9;
+            this.FatorPreco.HeaderText = "FatorPreco";
+            this.FatorPreco.Name = "FatorPreco";
+            this.FatorPreco.Width = 70;
+            // 
+            // PrecoVenda
+            // 
+            this.PrecoVenda.DataPropertyName = "PrecoVenda";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PrecoVenda.DefaultCellStyle = dataGridViewCellStyle10;
+            this.PrecoVenda.HeaderText = "PrecoVenda";
+            this.PrecoVenda.Name = "PrecoVenda";
+            this.PrecoVenda.Width = 70;
+            // 
+            // EstoqueAtual
+            // 
+            this.EstoqueAtual.DataPropertyName = "QtdeEstoqueAtual";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.EstoqueAtual.DefaultCellStyle = dataGridViewCellStyle11;
+            this.EstoqueAtual.HeaderText = "EstoqueAtual";
+            this.EstoqueAtual.Name = "EstoqueAtual";
+            this.EstoqueAtual.Width = 85;
+            // 
+            // EstoqueMinimo
+            // 
+            this.EstoqueMinimo.DataPropertyName = "QtdeEstoqueMinimo";
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.EstoqueMinimo.DefaultCellStyle = dataGridViewCellStyle12;
+            this.EstoqueMinimo.HeaderText = "EstoqueMinimo";
+            this.EstoqueMinimo.Name = "EstoqueMinimo";
+            this.EstoqueMinimo.Width = 85;
             // 
             // btnEditar
             // 
@@ -109,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(969, 483);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.dgvLista_Produto);
             this.Name = "frmProdutoLista";
@@ -126,6 +179,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FatorPreco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecoVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstoqueAtual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstoqueMinimo;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
         private System.Windows.Forms.DataGridViewButtonColumn btnApagar;
     }

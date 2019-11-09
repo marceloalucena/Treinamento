@@ -14,7 +14,7 @@ namespace MercadinhoWF
     public partial class frmVendaLista : Form
     {
         public VendaRepository vendaRepository = new VendaRepository();
-
+        public EstoqueRepository estoqueRepository = new EstoqueRepository();
         public List<Venda> Vendas { get; set; }
         public void Initialize()
         {
@@ -42,8 +42,27 @@ namespace MercadinhoWF
 
             if (frm.VendaManutencao != null)
             {
-                vendaRepository.Inserir(frm.VendaManutencao);
-                AtualizarGrid();
+                Estoque estoque;
+                estoque = estoqueRepository.Obter(frm.VendaManutencao.ProdutoId);
+                if (estoque == null)
+                {
+                    MessageBox.Show("Este produto não tem Estoque!");
+                    return;
+                }
+
+                String resultado;
+                resultado = estoqueRepository.RealizarBaixa(estoque, frm.VendaManutencao.QtdeVenda);
+                if (resultado == "")
+                {
+                    vendaRepository.Inserir(frm.VendaManutencao);
+                    AtualizarGrid();
+                    MessageBox.Show("Venda Executada Com Sucesso!");
+                }
+                else
+                {
+                    MessageBox.Show(resultado);
+                }
+
             }
         }
 
@@ -69,9 +88,21 @@ namespace MercadinhoWF
                 DialogResult result = MessageBox.Show("Deseja apagar o item?", "Remover", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    vendaRepository.Apagar(venda);
-                    AtualizarGrid();
-                    MessageBox.Show("Item Removido com Sucesso!");
+                    Estoque estoque;
+                    String resultado;
+                    estoque = estoqueRepository.Obter(venda.ProdutoId);
+                    resultado = estoqueRepository.RealizarRecebimento(estoque, venda.QtdeVenda);
+                    if (resultado == "")
+                    {
+                        vendaRepository.Apagar(venda);
+                        AtualizarGrid();
+                        MessageBox.Show("Item Removido com Sucesso!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível remover o item. Detalhe: " + resultado);
+                    }
+
                 }
                 else
                 {

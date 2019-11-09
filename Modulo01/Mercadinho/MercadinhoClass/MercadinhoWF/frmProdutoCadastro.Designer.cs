@@ -39,9 +39,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.numEstoqueMinimo = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numEstoqueAtual = new System.Windows.Forms.NumericUpDown();
+            this.cbxAtivo = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numValorCusto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFatorPreco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEstoqueMinimo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEstoqueAtual)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -132,16 +136,47 @@
             // 
             // numEstoqueMinimo
             // 
+            this.numEstoqueMinimo.Enabled = false;
             this.numEstoqueMinimo.Location = new System.Drawing.Point(317, 240);
             this.numEstoqueMinimo.Name = "numEstoqueMinimo";
             this.numEstoqueMinimo.Size = new System.Drawing.Size(120, 20);
             this.numEstoqueMinimo.TabIndex = 36;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(209, 268);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Estoque Atual";
+            // 
+            // numEstoqueAtual
+            // 
+            this.numEstoqueAtual.Enabled = false;
+            this.numEstoqueAtual.Location = new System.Drawing.Point(317, 266);
+            this.numEstoqueAtual.Name = "numEstoqueAtual";
+            this.numEstoqueAtual.Size = new System.Drawing.Size(120, 20);
+            this.numEstoqueAtual.TabIndex = 38;
+            // 
+            // cbxAtivo
+            // 
+            this.cbxAtivo.AutoSize = true;
+            this.cbxAtivo.Location = new System.Drawing.Point(481, 127);
+            this.cbxAtivo.Name = "cbxAtivo";
+            this.cbxAtivo.Size = new System.Drawing.Size(50, 17);
+            this.cbxAtivo.TabIndex = 40;
+            this.cbxAtivo.Text = "Ativo";
+            this.cbxAtivo.UseVisualStyleBackColor = true;
             // 
             // frmProdutoCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbxAtivo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numEstoqueAtual);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numEstoqueMinimo);
             this.Controls.Add(this.label4);
@@ -159,6 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numValorCusto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numFatorPreco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numEstoqueMinimo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEstoqueAtual)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +213,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numEstoqueMinimo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numEstoqueAtual;
+        private System.Windows.Forms.CheckBox cbxAtivo;
     }
 }

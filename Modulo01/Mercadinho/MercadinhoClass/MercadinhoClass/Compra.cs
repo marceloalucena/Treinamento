@@ -10,8 +10,11 @@ namespace MercadinhoClass
     {
         public int ProdutoId { get; set; }
         public Produto Produto { get; set; }
+
+        public string ProdutoDescricao => Produto?.Descricao ?? "";
         public int FornecedorId { get; set; }
         public Fornecedor Fornecedor { get; set; }
+        public string FornecedorNome => Fornecedor?.Nome ?? "";
         public int QtdeCompra { get; set; }
         public DateTime DataCompra { get; set; }
     }

@@ -42,7 +42,8 @@ namespace MercadinhoWF
 
         private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmCompraLista frm = new frmCompraLista();
+            frm.Show();
         }
 
         private void vendasToolStripMenuItem_Click(object sender, EventArgs e)

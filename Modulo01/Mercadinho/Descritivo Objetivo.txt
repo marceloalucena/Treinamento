@@ -1,0 +1,44 @@
+Mercadinho
+
+Cliente
+OK Criar classe cliente: Id, Nome, Data de nascimento, Data da última compra
+** Data da última compra
+OK Criar classe de mapeamento com banco de dados
+OK Criar classe de repositorio (utilizando herança de interface)
+
+Fornecedor
+ok Criar classe Fornecedor: Id, Codigo, Nome, Ativo, Data de Recebimento (produto), Quantidade Recebimento (produto)
+** Data de Recebimento (produto), Quantidade Recebimento (produto)
+OK Criar classe de mapeamento com banco de dados
+OK Criar classe de repositorio (utilizando herança de interface)
+
+Produto
+OK Criar classe Produto: Id, Nome, Data de nascimento, Data da última compra
+** Data da última compra
+OK Criar classe de mapeamento com banco de dados
+OK Criar classe de repositorio (utilizando herança de interface)
+
+Estoque
+OK Criar classe estoque:  Id, quantidade atual (produto), Quantidade Minima (produto)
+OK Criar classe de mapeamento com banco de dados
+OK Criar classe de repositorio (utilizando herança de interface)
+
+A tabela de estoque deve preechida apenas se for realizado um recebimento de produto
+A quantidade mínima deve ser calculada com base na quantidade recebida:
+quantidade mínima = (quantidade atual - 3)
+caso a quantidade mínima fique zerada ou negativa, atribuir o valor 1
+
+Dicas:
+OK Criar classe repositorio base (que implemente uma interface base)
+OK Implemtar metodos CRUD (repositorio base)
+OK Fazer com que os repositorios (cliente, produto, forncedor e estoque)
+
+
+repositorio estoque
+Criar dois metodos "Efetuar Recebimento" e "Efetuar Venda"
+Efetuar Recebimento: Usuario deve informar o forncedor, produto e a quantidade que esta sendo recebinda
+                    Somar a quantidade recebida no estoque (quantidade atual)
+Atualizar a data de recebimento e a quantidade no fornecedor
+
+Efetuar Venda: Usuario deve informar o cliente e o produto, apos a efetivação deve ser subtraido
+  da quantidade atual a quantidade que esta sendo comprada.

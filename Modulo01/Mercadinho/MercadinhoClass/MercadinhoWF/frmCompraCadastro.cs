@@ -13,20 +13,20 @@ namespace MercadinhoWF
 {
     public partial class frmCompraCadastro : Form
     {
-        public ClienteRepository clienteRepository = new ClienteRepository();
+        public FornecedorRepository fornecedorRepository = new FornecedorRepository();
 
         public ProdutoRepository produtoRepository = new ProdutoRepository();
         public Compra CompraManutencao { get; set; }
-        public List<Cliente> Clientes { get; set; }
+        public List<Fornecedor> Fornecedores { get; set; }
         public List<Produto> Produtos { get; set; }
 
         public void Initialize()
         {
-            Clientes = new List<Cliente>();
-            Clientes = clienteRepository.Obter().ToList();
-            cbxCliente.DataSource = Clientes;
-            cbxCliente.DisplayMember = "Nome";
-            cbxCliente.ValueMember = "Id";
+            Fornecedores = new List<Fornecedor>();
+            Fornecedores = fornecedorRepository.Obter().ToList();
+            cbxFornecedor.DataSource = Fornecedores;
+            cbxFornecedor.DisplayMember = "Nome";
+            cbxFornecedor.ValueMember = "Id";
 
             Produtos = new List<Produto>();
             Produtos = produtoRepository.Obter().ToList();
@@ -38,6 +38,7 @@ namespace MercadinhoWF
         public frmCompraCadastro()
         {
             InitializeComponent();
+            Initialize();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -53,12 +54,22 @@ namespace MercadinhoWF
                 compra.DataCompra = DateTime.Now;
             }
             compra.ProdutoId = Convert.ToInt32(cbxProduto.SelectedValue);
-            compra.FornecedorId = Convert.ToInt32(cbxCliente.SelectedValue);
+            compra.FornecedorId = Convert.ToInt32(cbxFornecedor.SelectedValue);
             compra.QtdeCompra = Convert.ToInt32(numQtde.Value);
             
             CompraManutencao = compra;
 
             Close();
         }
+        public void Preencher(Compra compra)
+        {
+            txtID.Text = Convert.ToString(compra.Id);
+            cbxProduto.SelectedValue = compra.ProdutoId;
+            cbxFornecedor.SelectedValue = compra.FornecedorId;
+            numQtde.Value = compra.QtdeCompra;
+            dtpDataCompra.Value = compra.DataCompra;
+        }
+
+
     }
 }

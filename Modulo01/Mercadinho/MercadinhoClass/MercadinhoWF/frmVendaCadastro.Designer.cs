@@ -39,14 +39,20 @@
             this.numQtde = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDataVenda = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numFatorPreco = new System.Windows.Forms.NumericUpDown();
+            this.numValorCusto = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numQtde)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFatorPreco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numValorCusto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(317, 299);
+            this.btnSalvar.Location = new System.Drawing.Point(317, 357);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.Size = new System.Drawing.Size(120, 32);
             this.btnSalvar.TabIndex = 48;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
@@ -142,11 +148,49 @@
             this.dtpDataVenda.Size = new System.Drawing.Size(104, 20);
             this.dtpDataVenda.TabIndex = 65;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(209, 296);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 13);
+            this.label6.TabIndex = 70;
+            this.label6.Text = "Fator de Preço";
+            // 
+            // numFatorPreco
+            // 
+            this.numFatorPreco.DecimalPlaces = 2;
+            this.numFatorPreco.Location = new System.Drawing.Point(318, 298);
+            this.numFatorPreco.Name = "numFatorPreco";
+            this.numFatorPreco.Size = new System.Drawing.Size(120, 20);
+            this.numFatorPreco.TabIndex = 69;
+            // 
+            // numValorCusto
+            // 
+            this.numValorCusto.DecimalPlaces = 2;
+            this.numValorCusto.Location = new System.Drawing.Point(317, 270);
+            this.numValorCusto.Name = "numValorCusto";
+            this.numValorCusto.Size = new System.Drawing.Size(120, 20);
+            this.numValorCusto.TabIndex = 68;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(209, 272);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "Preço";
+            // 
             // frmVendaCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numFatorPreco);
+            this.Controls.Add(this.numValorCusto);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpDataVenda);
             this.Controls.Add(this.numQtde);
@@ -161,6 +205,8 @@
             this.Name = "frmVendaCadastro";
             this.Text = "Cadastro de Venda";
             ((System.ComponentModel.ISupportInitialize)(this.numQtde)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFatorPreco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numValorCusto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +225,9 @@
         private System.Windows.Forms.NumericUpDown numQtde;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDataVenda;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numFatorPreco;
+        private System.Windows.Forms.NumericUpDown numValorCusto;
+        private System.Windows.Forms.Label label7;
     }
 }

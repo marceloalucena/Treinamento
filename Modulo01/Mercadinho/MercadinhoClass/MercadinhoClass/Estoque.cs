@@ -10,7 +10,8 @@ namespace MercadinhoClass
     {
         //public int Id { get; set; }
         public Produto Produto { get; set; }
-        public int QtdeEstoque { get; set; }
+        public int QtdeEstoqueAtual { get; set; }
         public int QtdeEstoqueMinimo { get; set; }
+
     }
 }

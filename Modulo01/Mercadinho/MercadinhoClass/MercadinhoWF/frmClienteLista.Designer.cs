@@ -32,8 +32,8 @@
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvLista_Cliente = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataNascimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnApagar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista_Cliente)).BeginInit();
@@ -55,8 +55,8 @@
             this.dgvLista_Cliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista_Cliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.Descricao,
             this.Nome,
+            this.DataNascimento,
             this.btnEditar,
             this.btnApagar});
             this.dgvLista_Cliente.Location = new System.Drawing.Point(28, 76);
@@ -76,19 +76,19 @@
             this.id.ReadOnly = true;
             this.id.Width = 40;
             // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.Width = 130;
-            // 
             // Nome
             // 
-            this.Nome.DataPropertyName = "ValorCusto";
-            this.Nome.HeaderText = "ValorCusto";
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.Width = 130;
+            // 
+            // DataNascimento
+            // 
+            this.DataNascimento.DataPropertyName = "DataNascimento";
+            this.DataNascimento.HeaderText = "DataNascimento";
+            this.DataNascimento.Name = "DataNascimento";
+            this.DataNascimento.Width = 130;
             // 
             // btnEditar
             // 
@@ -123,8 +123,8 @@
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dgvLista_Cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataNascimento;
         private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
         private System.Windows.Forms.DataGridViewButtonColumn btnApagar;
     }

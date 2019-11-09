@@ -52,6 +52,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
+    <Compile Include="Migrations\201911081738224_Estoque_Campo_EstoqueAtual.cs" />
+    <Compile Include="Migrations\201911081738224_Estoque_Campo_EstoqueAtual.designer.cs">
+      <DependentUpon>201911081738224_Estoque_Campo_EstoqueAtual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911091203196_Venda_ValorVenda.cs" />
+    <Compile Include="Migrations\201911091203196_Venda_ValorVenda.designer.cs">
+      <DependentUpon>201911091203196_Venda_ValorVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="TesteRepository.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EstoqueRepository.cs" />
@@ -107,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911050052061_Criado_Tab_Estoque.resx">
       <DependentUpon>201911050052061_Criado_Tab_Estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911081738224_Estoque_Campo_EstoqueAtual.resx">
+      <DependentUpon>201911081738224_Estoque_Campo_EstoqueAtual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911091203196_Venda_ValorVenda.resx">
+      <DependentUpon>201911091203196_Venda_ValorVenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
