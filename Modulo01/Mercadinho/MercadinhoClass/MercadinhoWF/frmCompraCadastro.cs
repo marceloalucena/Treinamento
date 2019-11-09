@@ -20,6 +20,7 @@ namespace MercadinhoWF
         public List<Fornecedor> Fornecedores { get; set; }
         public List<Produto> Produtos { get; set; }
 
+        public bool AtualizaPreco { get; set; }
         public void Initialize()
         {
             Fornecedores = new List<Fornecedor>();
@@ -68,8 +69,25 @@ namespace MercadinhoWF
             cbxFornecedor.SelectedValue = compra.FornecedorId;
             numQtde.Value = compra.QtdeCompra;
             dtpDataCompra.Value = compra.DataCompra;
+            numValorCusto.Value = compra.Produto.ValorCusto;
+            numTotal.Value = numValorCusto.Value * numQtde.Value;
+            AtualizaPreco = true;
         }
 
+        private void cbxProduto_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (AtualizaPreco)
+            {
+                Produto produtoPreco;
+                produtoPreco = produtoRepository.Obter(Convert.ToInt32(cbxProduto.SelectedValue));
+                numValorCusto.Value = produtoPreco.ValorCusto;
+                numTotal.Value = numValorCusto.Value * numQtde.Value;
+            }
+        }
 
+        private void numQtde_ValueChanged(object sender, EventArgs e)
+        {
+            numTotal.Value = numValorCusto.Value * numQtde.Value;
+        }
     }
 }

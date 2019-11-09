@@ -28,20 +28,13 @@ namespace MercadinhoClass
         {
             if (estoque.QtdeEstoqueAtual > quantidade)
             {
-                int qtdeEstoqueMinimo;
-                qtdeEstoqueMinimo = estoque.QtdeEstoqueAtual - quantidade - 3;
-                if (qtdeEstoqueMinimo < 1)
-                {
-                    qtdeEstoqueMinimo = 1;
-                }
-
-                string sql = "UPDATE Estoque SET QtdeEstoqueAtual=QtdeEstoqueAtual-{0}, QtdeEstoqueMinimo={1} where id = {2}";
-                _contexto.Database.ExecuteSqlCommand(sql, quantidade, qtdeEstoqueMinimo, estoque.Id);
+                string sql = "UPDATE Estoque SET QtdeEstoqueAtual=QtdeEstoqueAtual-{0} where id = {1}";
+                _contexto.Database.ExecuteSqlCommand(sql, quantidade, estoque.Id);
                 return "";
             }
             else
             {
-                return $"Não tem Estoque Suficiente! Saldo {estoque.QtdeEstoqueAtual}UN";
+                return $"Não tem Estoque Suficiente! Saldo {estoque.QtdeEstoqueAtual}";
             }
 
         }

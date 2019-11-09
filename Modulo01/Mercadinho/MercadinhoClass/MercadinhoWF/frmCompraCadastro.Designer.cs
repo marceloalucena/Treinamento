@@ -39,7 +39,13 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.dtpDataCompra = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numTotal = new System.Windows.Forms.NumericUpDown();
+            this.numValorCusto = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numQtde)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numValorCusto)).BeginInit();
             this.SuspendLayout();
             // 
             // numQtde
@@ -53,6 +59,7 @@
             this.numQtde.Name = "numQtde";
             this.numQtde.Size = new System.Drawing.Size(120, 20);
             this.numQtde.TabIndex = 62;
+            this.numQtde.ValueChanged += new System.EventHandler(this.numQtde_ValueChanged);
             // 
             // label4
             // 
@@ -70,6 +77,7 @@
             this.cbxProduto.Name = "cbxProduto";
             this.cbxProduto.Size = new System.Drawing.Size(259, 21);
             this.cbxProduto.TabIndex = 60;
+            this.cbxProduto.SelectedValueChanged += new System.EventHandler(this.cbxProduto_SelectedValueChanged);
             // 
             // label3
             // 
@@ -90,7 +98,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(325, 299);
+            this.btnSalvar.Location = new System.Drawing.Point(325, 348);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 57;
@@ -142,11 +150,61 @@
             this.label5.TabIndex = 64;
             this.label5.Text = "Data da Venda";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(216, 299);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 74;
+            this.label6.Text = "Total";
+            // 
+            // numTotal
+            // 
+            this.numTotal.DecimalPlaces = 2;
+            this.numTotal.Enabled = false;
+            this.numTotal.Location = new System.Drawing.Point(325, 301);
+            this.numTotal.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numTotal.Name = "numTotal";
+            this.numTotal.Size = new System.Drawing.Size(120, 20);
+            this.numTotal.TabIndex = 73;
+            // 
+            // numValorCusto
+            // 
+            this.numValorCusto.DecimalPlaces = 2;
+            this.numValorCusto.Enabled = false;
+            this.numValorCusto.Location = new System.Drawing.Point(325, 273);
+            this.numValorCusto.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numValorCusto.Name = "numValorCusto";
+            this.numValorCusto.Size = new System.Drawing.Size(120, 20);
+            this.numValorCusto.TabIndex = 72;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(216, 275);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "Custo";
+            // 
             // frmCompraCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numTotal);
+            this.Controls.Add(this.numValorCusto);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpDataCompra);
             this.Controls.Add(this.numQtde);
@@ -161,6 +219,8 @@
             this.Name = "frmCompraCadastro";
             this.Text = "Cadastro de Compra";
             ((System.ComponentModel.ISupportInitialize)(this.numQtde)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numValorCusto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +239,9 @@
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.DateTimePicker dtpDataCompra;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numTotal;
+        private System.Windows.Forms.NumericUpDown numValorCusto;
+        private System.Windows.Forms.Label label7;
     }
 }
