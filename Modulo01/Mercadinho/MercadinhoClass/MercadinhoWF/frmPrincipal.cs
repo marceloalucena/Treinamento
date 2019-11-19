@@ -51,5 +51,10 @@ namespace MercadinhoWF
             frmVendaLista frm = new frmVendaLista();
             frm.Show();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
