@@ -1,0 +1,12 @@
+ - Git / Git Hub
+ 
+ Visual Studio
+ - Fonte: firacode (github)
+ - Package: NuGet
+ 
+ MeetUp
+ - Jund Developers + Foto
+ 
+ http://www.itexs.com.br/acesso/arqs/medicator/IMPLEMENTACAO_V3_0_R12_1_12_PORTARIA_240.pdf
+ http://www.itexs.com.br/acesso/medicator/IMPLEMENTACAO_V3_0_R12_1_12_PORTARIA_240.pdf
+ http://itexs.com.br/acesso/medicator/IMPLEMENTACAO_V3_0_R12_1_12_PORTARIA_240.pdf

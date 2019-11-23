@@ -1,0 +1,19 @@
+-- Criar um projeto na versão default
+dotnet new webapi -o NomePasta
+
+-- Criar um projeto na versão específica
+dotnet new webapi -o NomePasta -f Target
+-f|--framework             The target framework for the project.                                                      
+                           netcoreapp3.0    - Target netcoreapp3.0                                                
+                           netcoreapp2.2    - Target netcoreapp2.2                                                
+                           netcoreapp2.1    - Target netcoreapp2.1                                                
+                           Default: netcoreapp3.0                         
+
+-- Criar uma Solução
+dotnet new sln -n NomeSolucao
+
+-- Build
+dotnet build "NomeSolucao.sl"
+
+-- Run
+dotnet run "NomeSolucao.sl"
