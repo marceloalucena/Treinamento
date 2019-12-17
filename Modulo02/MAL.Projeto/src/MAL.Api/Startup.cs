@@ -10,6 +10,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using MAL.Data;
+using MAL.Bussiness.Model;
+using MAL.Data.Repository;
+using MAL.Bussiness.Interfaces;
+using AutoMapper;
 
 namespace MAL.Api
 {
@@ -25,9 +31,12 @@ namespace MAL.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDBContext<APIContext>(opt => {
+            services.AddDbContext<APIContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
             });
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

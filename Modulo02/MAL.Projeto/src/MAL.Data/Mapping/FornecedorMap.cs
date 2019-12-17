@@ -1,4 +1,4 @@
-using MAL.Data.bin.Model;
+using MAL.Bussiness.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

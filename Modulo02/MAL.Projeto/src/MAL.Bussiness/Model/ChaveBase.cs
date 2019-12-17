@@ -1,6 +1,6 @@
 using System;
 
-namespace MAL.Data.bin.Model
+namespace MAL.Bussiness.Model
 {
     public class ChaveBase
     {

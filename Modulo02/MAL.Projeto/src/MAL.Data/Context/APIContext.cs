@@ -1,8 +1,8 @@
-using MAL.Data.bin.Model;
+using MAL.Bussiness.Model;
 using MAL.Data.Mapping;
 using Microsoft.EntityFrameworkCore;
 
-namespace MAL.Data.bin.Context
+namespace MAL.Data
 {
     public class APIContext : DbContext
     {

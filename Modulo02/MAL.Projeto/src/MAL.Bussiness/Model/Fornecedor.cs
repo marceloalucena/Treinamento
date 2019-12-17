@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MAL.Data.bin.Model
+namespace MAL.Bussiness.Model
 {
     public class Fornecedor: ChaveBase
     {
