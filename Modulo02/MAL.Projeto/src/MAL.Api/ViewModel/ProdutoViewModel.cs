@@ -23,8 +23,6 @@ namespace MAL.API.ViewModel
         public decimal Valor { get; set; }
         
         [Required(ErrorMessage = "O campo {0} é obrigatório")] 
-        public DateTime DataCadastro { get; set; }
-        
         public bool Ativo { get; set; }
         
     }
@@ -46,7 +44,6 @@ namespace MAL.API.ViewModel
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public decimal Valor { get; set; }
 
-        public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
     }
 
@@ -67,8 +64,6 @@ namespace MAL.API.ViewModel
         public string Descricao { get; set; }
 
         public string Imagem { get; set; }
-
-        public DateTime DataCadastro { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public decimal Valor { get; set; }

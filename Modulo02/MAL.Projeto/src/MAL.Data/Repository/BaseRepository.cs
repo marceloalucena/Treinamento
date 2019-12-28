@@ -5,10 +5,11 @@ using MAL.Bussiness.Model;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace MAL.Data.Repository
 {
-    public class BaseRepository<E> : IBaseRepository<E> where E : ChaveBase
+    public abstract class BaseRepository<E> : IBaseRepository<E> where E : EntidadeBase
     {
         public APIContext _apiContexto { get; private set; }
         public BaseRepository(APIContext apiContext)
@@ -50,6 +51,11 @@ namespace MAL.Data.Repository
         public void Dispose()
         {
             _apiContexto.Dispose();
+        }
+
+        public async Task<IEnumerable<E>> Buscar(Expression<Func<E, bool>> predicate)
+        {
+            return await _apiContexto.Set<E>().Where(predicate).ToListAsync();
         }
     }
 }

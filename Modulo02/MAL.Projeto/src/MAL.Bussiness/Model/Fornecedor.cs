@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MAL.Bussiness.Model
 {
-    public class Fornecedor: ChaveBase
+    public class Fornecedor: EntidadeBase
     {
         public string Nome { get; set; }
         public TipoFornecedor TipoFornecedor { get; set; }

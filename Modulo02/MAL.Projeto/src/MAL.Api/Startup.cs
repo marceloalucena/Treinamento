@@ -16,6 +16,13 @@ using MAL.Bussiness.Model;
 using MAL.Data.Repository;
 using MAL.Bussiness.Interfaces;
 using AutoMapper;
+using MAL.Bussiness.Notificacoes;
+using MAL.Api.Configurations;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
+using MAL.Api.Extentions;
 
 namespace MAL.Api
 {
@@ -35,9 +42,27 @@ namespace MAL.Api
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
             });
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<IProdutoRepository, ProdutoRepository>();
-            services.AddScoped<IFornecedorRepository, FornecedorRepository>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddApiConfig();
+            services.AddDependencyInjectionConfig();
+            services.AddResponseCaching();
+            services.AddResponseCompression(opt => {
+                opt.Providers.Add<BrotliCompressionProvider>();
+                opt.EnableForHttps = true;
+            });
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddXmlDataContractSerializerFormatters()
+                .AddJsonOptions(opcoes => 
+                {
+                    opcoes.SerializerSettings.NullValueHandling =
+                        Newtonsoft.Json.NullValueHandling.Ignore;
+                });
+            services.AddHealthChecks()
+                .AddSqlServer(Configuration.GetConnectionString("SqlServer"), name: "BancoSQL")
+                .AddCheck("Fornecedores", new SqlServerHealthCheck(Configuration.GetConnectionString("SqlServer")));
+            services.AddHealthChecksUI();
+
+            services.AddSwaggerConfig();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +77,16 @@ namespace MAL.Api
                 app.UseHsts();
             }
 
+            app.UseSwaggerConfig();
+            app.UseResponseCaching();
+
+            app.UseHealthChecks("/api/hc", new HealthCheckOptions
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+            app.UseHealthChecksUI();
+            
             app.UseHttpsRedirection();
             app.UseMvc();
         }
