@@ -13,10 +13,10 @@ using MAL.API.ViewModel;
 using MAL.Bussiness.Notificacoes;
 using MAL.Bussiness.Services;
 
-namespace MAL.Api.Controllers
+namespace MAL.Api.Controllers.V1
 {
-    [Route("api/v1/[controller]")]
-    [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     public class ProdutosController : ControladorBase
     {
         private readonly IProdutoRepository _produtoRepository;

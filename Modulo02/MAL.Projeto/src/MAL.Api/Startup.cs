@@ -23,6 +23,12 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using HealthChecks.UI.Client;
 using MAL.Api.Extentions;
+using Microsoft.AspNetCore.Http;
+using KissLog;
+using ILogger = KissLog.ILogger;
+using KissLog.AspNetCore;
+using KissLog.Apis.v1.Listeners;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace MAL.Api
 {
@@ -38,6 +44,25 @@ namespace MAL.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                options.ReportApiVersions = true;
+            });
+            /*
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ILogger>((context) =>
+            {
+                return Logger.Factory.Get();
+            });
+            */
+
+
+            //services.Configure<ClasseConfiguração>(Configuration);
+            //var MeuObjConfig = Configuration.Get<ClasseConfiguração>;
+            //MeuObjConfig.Campo...
+
             services.AddDbContext<APIContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
             });
@@ -49,6 +74,13 @@ namespace MAL.Api
                 opt.Providers.Add<BrotliCompressionProvider>();
                 opt.EnableForHttps = true;
             });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            });
+
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddXmlDataContractSerializerFormatters()
@@ -66,8 +98,12 @@ namespace MAL.Api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, 
+                              IHostingEnvironment env, 
+                              ILoggerFactory loggerFactory,
+                              IApiVersionDescriptionProvider provider)
         {
+            //loggerFactory.AddFile("log/mal-{Date}.txt", Microsoft.Extensions.Logging.LogLevel.Error);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,7 +113,7 @@ namespace MAL.Api
                 app.UseHsts();
             }
 
-            app.UseSwaggerConfig();
+            app.UseSwaggerConfig(provider);
             app.UseResponseCaching();
 
             app.UseHealthChecks("/api/hc", new HealthCheckOptions
@@ -86,7 +122,16 @@ namespace MAL.Api
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
             });
             app.UseHealthChecksUI();
-            
+
+            // make sure it is added after app.UseStaticFiles() and app.UseSession(), and before app.UseMvc()
+            /*
+            app.UseKissLogMiddleware(options => {
+                options.Listeners.Add(new KissLogApiListener(new KissLog.Apis.v1.Auth.Application(
+                    Configuration["KissLog.OrganizationId"],
+                    Configuration["KissLog.ApplicationId"])
+                ));
+            });
+            */
             app.UseHttpsRedirection();
             app.UseMvc();
         }

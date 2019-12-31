@@ -3,6 +3,8 @@ using MAL.Bussiness.Notificacoes;
 using MAL.Bussiness.Services;
 using MAL.Data.Repository;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,7 @@ namespace MAL.Api.Configurations
 
             services.AddScoped<INotificador, Notificador>();
 
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>,ConfigureSwaggerOptions>();
             return services;
         }
     }

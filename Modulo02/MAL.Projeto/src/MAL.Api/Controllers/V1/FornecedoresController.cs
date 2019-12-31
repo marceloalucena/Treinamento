@@ -12,28 +12,33 @@ using MAL.API.ViewModel;
 using AutoMapper;
 using MAL.Bussiness.Notificacoes;
 using MAL.Bussiness.Services;
+using Microsoft.Extensions.Logging;
 
-namespace MAL.Api.Controllers
+namespace MAL.Api.Controllers.V1
 {
-    [Route("api/v1/[controller]")]
-    [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
+
     public class FornecedoresController : ControladorBase
     {
         private readonly IFornecedorRepository _fornecedorRepository;
         private readonly IFornecedorService _fornecedorService;
         private readonly IMapper _mapper;
+        private readonly ILogger _logger;
 
         public FornecedoresController
         (
             IFornecedorRepository fornecedorRepository, 
             IFornecedorService fornecedorService, 
             IMapper mapper,
-            INotificador notificador
+            INotificador notificador,
+            ILogger<FornecedoresController> logger
         ) : base(notificador)
         {
             _fornecedorRepository = fornecedorRepository;
             _fornecedorService = fornecedorService;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -48,6 +53,12 @@ namespace MAL.Api.Controllers
         public async Task<ActionResult<FornecedorViewModel>> GetFornecedor(Guid id)
         {
             var fornecedor = await _fornecedorRepository.Obter(id);
+
+            _logger.LogCritical($">>>>>>>>>>>>>>>>>>>>>>>>>>>Fornecedor ID: {id}");
+            _logger.LogDebug($">>>>>>>>>>>>>>>>>>>>>>>>>>> Fornecedor ID: {id}");
+            _logger.LogInformation($">>>>>>>>>>>>>>>>>>>>>>>>>>> Fornecedor ID: {id}");
+            _logger.LogError($">>>>>>>>>>>>>>>>>>>>>>>>>>> Fornecedor ID: {id}");
+            _logger.LogWarning($">>>>>>>>>>>>>>>>>>>>>>>>>>> Fornecedor ID: {id}");
 
             if (fornecedor == null)
             {
