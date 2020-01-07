@@ -1,34 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using HealthChecks.UI.Client;
+using MAL.Api.Configurations;
+using MAL.Api.Extentions;
+using MAL.Data;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.EntityFrameworkCore;
-using MAL.Data;
-using MAL.Bussiness.Model;
-using MAL.Data.Repository;
-using MAL.Bussiness.Interfaces;
-using AutoMapper;
-using MAL.Bussiness.Notificacoes;
-using MAL.Api.Configurations;
-using Swashbuckle.AspNetCore.Swagger;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using HealthChecks.UI.Client;
-using MAL.Api.Extentions;
-using Microsoft.AspNetCore.Http;
-using KissLog;
-using ILogger = KissLog.ILogger;
-using KissLog.AspNetCore;
-using KissLog.Apis.v1.Listeners;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.IdentityModel.Logging;
 
 namespace MAL.Api
 {
@@ -66,6 +51,9 @@ namespace MAL.Api
             services.AddDbContext<APIContext>(opt => {
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
             });
+
+            services.AddIdentityConfig(Configuration);
+
             services.AddAutoMapper(typeof(Startup));
             services.AddApiConfig();
             services.AddDependencyInjectionConfig();
@@ -133,6 +121,8 @@ namespace MAL.Api
             });
             */
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

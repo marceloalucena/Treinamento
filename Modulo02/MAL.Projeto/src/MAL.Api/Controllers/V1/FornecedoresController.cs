@@ -13,6 +13,7 @@ using AutoMapper;
 using MAL.Bussiness.Notificacoes;
 using MAL.Bussiness.Services;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MAL.Api.Controllers.V1
 {

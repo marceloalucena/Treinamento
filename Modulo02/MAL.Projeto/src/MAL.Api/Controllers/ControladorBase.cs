@@ -1,4 +1,5 @@
 ﻿using MAL.Bussiness.Notificacoes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace MAL.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     public abstract class ControladorBase: ControllerBase
     {
         private INotificador _notificador;
@@ -47,6 +49,11 @@ namespace MAL.Api.Controllers
                 string mensagemErro = erro.Exception == null ? erro.ErrorMessage : erro.ErrorMessage;
                 _notificador.Handle(new Notificacao(mensagemErro));
             }
+        }
+
+        protected void NotificarErro(string erro)
+        {
+            _notificador.Handle(new Notificacao(erro));
         }
     }
 }
