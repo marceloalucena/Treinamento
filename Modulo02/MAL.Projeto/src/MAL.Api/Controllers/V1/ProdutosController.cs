@@ -12,6 +12,7 @@ using AutoMapper;
 using MAL.API.ViewModel;
 using MAL.Bussiness.Notificacoes;
 using MAL.Bussiness.Services;
+using System.IO;
 
 namespace MAL.Api.Controllers.V1
 {
@@ -88,7 +89,12 @@ namespace MAL.Api.Controllers.V1
         public async Task<ActionResult<Produto>> PostProduto(ProdutoAdicionarViewModel produto)
         {
             if (!ModelState.IsValid) return Result(ModelState);
-
+            var nomeImagem = $"{Guid.NewGuid()}.jpg";
+            if (!UploadImagem(produto.Imagem, nomeImagem))
+            {
+                return Result("Erro ao salvar imagem");
+            }
+            produto.Imagem = nomeImagem;
             await _produtoService.Inserir(_mapper.Map<Produto>(produto));
             return Result("Registro Incluído com Sucesso");
             
@@ -112,6 +118,23 @@ namespace MAL.Api.Controllers.V1
         private bool ProdutoExists(Guid id)
         {
             return _produtoRepository.Obter(id) != null;
+        }
+
+        private bool UploadImagem(string imagemBase64, string nomeImagem)
+        {
+            if (string.IsNullOrEmpty(imagemBase64))
+            {
+                NotificarErro("Necessário informar uma imagem para o produto!");
+                return false;
+            }
+
+            var imagemByte = Convert.FromBase64String(imagemBase64);
+
+            var pathImagem = Path.Combine("D:", "Treinamento", "Treinamento", "Modulo02", "MAL.Projeto", "img", nomeImagem);
+
+            System.IO.File.WriteAllBytes(pathImagem, imagemByte);
+
+            return true;
         }
     }
 }
