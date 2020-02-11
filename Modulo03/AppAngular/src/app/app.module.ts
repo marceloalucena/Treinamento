@@ -1,27 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MenuComponent } from './comum/menu/menu.component';
-import { FooterComponent } from './comum/footer/footer.component';
-import { ListaProdutosComponent } from './paginas/lista-produtos/lista-produtos.component';
 import { ContatoComponent } from './paginas/contato/contato.component';
-import { RouterModule } from '@angular/router';
-import { rootRouterConfig } from './app.routers';
-import { NotfoundComponent } from './comum/notfound/notfound.component';
+import { AppRoutingModule } from './app.routers';
+import { HomeComponent } from './paginas/home/home.component';
+import { DataBindingComponent } from './exemplos/data-binding/data-binding.component';
+import { HttpClientModule } from '@angular/common/http';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { CadastroComponent } from './exemplos/cadastro/cadastro.component';
+registerLocaleData(localePt);
+import { NgBrazil } from 'ng-brazil';
+import { TextMaskModule } from 'angular2-text-mask';
+import { CustomFormsModule } from 'ng2-validation';
+import { ComumModule } from './comum/comum.module';
+import { ListaProdutosModule } from './paginas/lista-produtos/lista-produtos.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    FooterComponent,
-    ListaProdutosComponent,
     ContatoComponent,
-    NotfoundComponent
+    HomeComponent,
+    DataBindingComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
-    [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
+    FormsModule,
+    HttpClientModule,
+
+    ComumModule,
+    ListaProdutosModule,
+
+    ReactiveFormsModule,
+    TextMaskModule,
+    NgBrazil,
+    CustomFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

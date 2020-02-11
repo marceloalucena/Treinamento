@@ -1,0 +1,70 @@
+<div class="container main-container">
+
+  <header class="jumbotron">
+    <h4 class="display-4">Contato</h4>
+    <hr>
+  </header>
+  <form [formGroup]="cadastroForm" (ngSubmit)="salvar()">
+    <div class="row row-sm-offset">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" formControlName="nome" > 
+          <span *ngIf="displayMessage.nome" class="text-danger">
+            <p [innerHTML]="displayMessage.nome"></p>
+          </span> 
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid': displayMessage.email}">
+          <span *ngIf="displayMessage.email" class="text-danger">
+            <p [innerHTML]="displayMessage.email"></p>
+          </span>
+
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>CPF</label>
+          <input type="text" class="form-control" formControlName="cpf" [textMask]="{mask: MASKS.cpf.textMask}"
+          [ngClass]="{'is-invalid': displayMessage.cpf}">
+          <span *ngIf="displayMessage.cpf" class="text-danger">
+            <p [innerHTML]="displayMessage.cpf"></p>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row row-sm-offset">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Senha</label>
+          <input type="password" class="form-control" formControlName="senha" [ngClass]="{'is-invalid': displayMessage.senha}">
+          <span *ngIf="displayMessage.senha" class="text-danger">
+            <p [innerHTML]="displayMessage.senha"></p>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>Confirmação da Senha </label>
+          <input type="password" class="form-control" formControlName="confirmacaoSenha" 
+            [ngClass]="{'is-invalid': displayMessage.confirmacaoSenha}">
+            <span *ngIf="displayMessage.confirmacaoSenha" class="text-danger">
+              <p [innerHTML]="displayMessage.confirmacaoSenha"></p>
+            </span>
+ 
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!cadastroForm.valid"><i class="fa fa-floppy-o"
+        aria-hidden="true"></i> Salvar</button>
+    <br>
+    <p>Formulario está válido {{cadastroForm.valid}}</p>
+    <p>Formulario ganhou foco {{cadastroForm.touched}}</p>
+    <p>Formulario foi alterado {{cadastroForm.dirty}}</p>
+  </form>
+</div>
