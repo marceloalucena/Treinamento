@@ -20,6 +20,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   genericValidator: GenericValidator;
   displayMessage: DisplayMessage = {};
   validationMessages : ValidationMessages;
+  alteracoesPendentes: boolean;
 
   constructor(private fb: FormBuilder) {
     this.validationMessages = {
@@ -73,10 +74,11 @@ export class CadastroComponent implements OnInit, AfterViewInit {
 
     merge( ... ControlBlurs).subscribe(() => {
       this.displayMessage = this.genericValidator.processarMensagens(this.cadastroForm);
+      this.alteracoesPendentes = true;
     })
   }
 
   salvar(){
-     console.log(this.cadastroForm.value)
+     this.alteracoesPendentes = false;
   }
 }

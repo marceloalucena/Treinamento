@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProdutosService } from 'src/app/services/produtos.service';
 import { Produto } from 'src/app/models/produto';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'MAL-lista-produtos',
@@ -9,15 +9,11 @@ import { Produto } from 'src/app/models/produto';
 export class ListaProdutosComponent implements OnInit {
 
   public listaProdutos: Produto[];
-  constructor(private service: ProdutosService) { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.service.obterProdutos().subscribe(prod => {
-      this.listaProdutos = prod
-      console.log(this.listaProdutos);
-    },
-      error => console.log(error)
-    );
+    this.listaProdutos = this.route.snapshot.data['produtos'];
   }
 
   produtoSelecionado(prd: Produto){

@@ -5,7 +5,6 @@
                 <img src="/assets/{{produto.imagem}}" class="card-img-top card-produtos">                        
             </div>
         </a>
-        
         <h4 class="card-title">{{produto.descricao | titlecase}}</h4>
         <div class="card-body">
           <div [ngSwitch]="produto.promocao">
@@ -23,13 +22,16 @@
             </h4>
           </div>
           <div *ngIf="!produto.promocao" class="card-body">
-            <div>
-              <h4>{{produto.preco | currency:'BRL': symbol:'1.2-2':'pt'}}</h4>
-            </div>
+            <h4>
+              <br>
+              <p>{{produto.preco | currency:'BRL': symbol:'1.2-2':'pt'}}</p>
+            </h4>
           </div>
         </div>
         <div class="card-footer">
-            <a class="btn btn-success text-white" (click)="comprar()"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span></span> Comprar</a>
+            <a class="btn btn-info text-white btn-block" (click)="promocao()"><i class="fa fa-gift" aria-hidden="true"></i><span></span> Promoção</a>
+            <a class="btn btn-success text-white btn-block" (click)="comprar()"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span></span> Comprar</a>
+            <a class="btn btn-secondary text-white btn-block" [routerLink]="['visualizar',produto.id]"><i class="fa fa-eye" aria-hidden="true"></i><span></span> Visualizar</a>
         </div>
     </div>
 </div>

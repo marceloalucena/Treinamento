@@ -17,6 +17,8 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { CustomFormsModule } from 'ng2-validation';
 import { ComumModule } from './comum/comum.module';
 import { ListaProdutosModule } from './paginas/lista-produtos/lista-produtos.module';
+import { AuthGuardService } from './services/auth-guard.service';
+import { CadastroGuardService } from './exemplos/cadastro/cadastro-guard.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { ListaProdutosModule } from './paginas/lista-produtos/lista-produtos.mod
     CustomFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuardService, CadastroGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

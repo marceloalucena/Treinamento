@@ -14,7 +14,10 @@ export class ProdutoCardComponent {
   @Output()
   selecionado:EventEmitter<Produto> = new EventEmitter();
 
-  comprar(){
+  promocao(){
+    this.selecionado.emit(this.produto);
+  }
+  visualizar(id){
     this.selecionado.emit(this.produto);
   }
 }
