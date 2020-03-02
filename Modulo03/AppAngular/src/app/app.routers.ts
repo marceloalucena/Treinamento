@@ -7,6 +7,7 @@ import { CadastroComponent } from './exemplos/cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CadastroGuardService } from './exemplos/cadastro/cadastro-guard.service';
+import { ZonasComponent } from './exemplos/zonas/zonas.component';
 
 const rootRouterConfig: Routes = [
     {path:'', redirectTo: '/home', pathMatch: 'full'},
@@ -20,12 +21,13 @@ const rootRouterConfig: Routes = [
         canActivate:[AuthGuardService]},
     {path:'data-binding', component:DataBindingComponent},
     {path:'cadastro', component:CadastroComponent, canDeactivate: [CadastroGuardService]},
+    {path:'zonas', component:ZonasComponent},
     {path:'**', component:NotfoundComponent}
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(rootRouterConfig, {enableTracing: true})
+        RouterModule.forRoot(rootRouterConfig, {enableTracing: false})
     ],
     exports: [        
         RouterModule

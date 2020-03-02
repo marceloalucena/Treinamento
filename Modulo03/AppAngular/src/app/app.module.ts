@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ContatoComponent } from './paginas/contato/contato.component';
@@ -19,6 +19,8 @@ import { ComumModule } from './comum/comum.module';
 import { ListaProdutosModule } from './paginas/lista-produtos/lista-produtos.module';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CadastroGuardService } from './exemplos/cadastro/cadastro-guard.service';
+import { ZonasModule } from './exemplos/zonas/zonas.module';
+import { GlobalErrorHandler } from './comum/global-error-handler';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,14 @@ import { CadastroGuardService } from './exemplos/cadastro/cadastro-guard.service
     TextMaskModule,
     NgBrazil,
     CustomFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ZonasModule
   ],
-  providers: [AuthGuardService, CadastroGuardService],
+  providers: [
+    AuthGuardService, 
+    CadastroGuardService,
+    {provide: ErrorHandler, useClass: GlobalErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

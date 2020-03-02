@@ -1,0 +1,15 @@
+<br>
+<br><br>
+<div style="padding-bottom: 30px;">
+    <div class="card h-100">
+        <br>
+        <h4 class="card-title text-center">Progresso: {{progresso}}%</h4>
+        <br>
+        <h4 class="card-title text-center" *ngIf="progresso >= 100">Processo {{label}} Executado com Sucesso!</h4>
+        <br>
+        <div class="card-footer">
+          <a class="btn btn-info text-white btn-block" (click)="dentroZonaAngular()"><i class="fa fa-gift" aria-hidden="true"></i><span></span> Dentro Zona Angular</a>
+          <a class="btn btn-success text-white btn-block" (click)="foraZonaAngular()"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span></span> Fora Zona Angular</a>
+        </div>
+    </div>
+</div>

@@ -2,11 +2,15 @@
     <MAL-total-produto-promocao [produtos]="listaProdutos">
         
     </MAL-total-produto-promocao>
+    
+    <div class="text-center">
+       <input class="rounder" type="search" placeholder="Buscar" autofocus (keyup)="debounce.next($event.target.value)">
+    </div>
 
     <div class="row text-center">
        <MAL-produto-card 
           class="col-lg-4 md-4" 
-          *ngFor="let prd of listaProdutos" 
+          *ngFor="let prd of listaProdutos | filtrarPorDescricao:filtro" 
           [produto]="prd"
           (selecionado)="produtoSelecionado($event)">
 

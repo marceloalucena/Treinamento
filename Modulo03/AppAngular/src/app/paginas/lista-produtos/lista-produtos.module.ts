@@ -9,6 +9,7 @@ import { ProdutosService } from 'src/app/services/produtos.service';
 import { VisualizarProdutoComponent } from './visualizar-produto/visualizar-produto.component';
 import { ProdutoAppComponent } from './produto.app.component';
 import { ListaProdutosResolver } from './lista-produtos.resolver';
+import { FiltrarPorDescricaoPipe } from './filtrar-por-descricao.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ListaProdutosResolver } from './lista-produtos.resolver';
      ProdutoCardComponent,
      TotalProdutoPromocaoComponent,
      VisualizarProdutoComponent,
-     ProdutoAppComponent
+     ProdutoAppComponent,
+     FiltrarPorDescricaoPipe
 
   ],
   imports: [
