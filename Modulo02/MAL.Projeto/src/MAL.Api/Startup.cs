@@ -29,6 +29,7 @@ namespace MAL.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddApiVersioning(options =>
             {
                 options.AssumeDefaultVersionWhenUnspecified = true;
@@ -100,6 +101,13 @@ namespace MAL.Api
             {
                 app.UseHsts();
             }
+
+            app.UseCors( x=>
+            {
+                x.AllowAnyHeader();
+                x.AllowAnyMethod();
+                x.AllowAnyOrigin();
+            });
 
             app.UseSwaggerConfig(provider);
             app.UseResponseCaching();

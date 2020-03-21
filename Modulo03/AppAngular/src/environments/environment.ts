@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  urlAPI_Produto: 'http://localhost:3000/produtos2'
+  urlAPI_Produto: 'http://localhost:3000/produtos'
 };
